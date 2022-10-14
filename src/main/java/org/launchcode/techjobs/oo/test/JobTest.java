@@ -24,15 +24,15 @@ public class JobTest {
     public void testJobConstructorSetsAllFields() {
         Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"),
                 new PositionType("Quality Control"), new CoreCompetency("Persistence"));
-        assertNotNull(job.getName());
+        assertTrue(job.getName() != null);
         assertEquals(job.getName(), "Product tester");
-        assertNotNull(job.getEmployer());
+        assertTrue(job.getEmployer() != null);
         assertEquals(job.getEmployer().getValue(), "ACME");
-        assertNotNull(job.getLocation());
+        assertTrue(job.getLocation() != null);
         assertEquals(job.getLocation().getValue(), "Desert");
-        assertNotNull(job.getPositionType().getValue());
+        assertTrue(job.getPositionType() != null);
         assertEquals(job.getPositionType().getValue(), "Quality Control");
-        assertNotNull(job.getCoreCompetency());
+        assertTrue(job.getCoreCompetency() != null);
         assertEquals(job.getCoreCompetency().getValue(), "Persistence");
     }
 
@@ -42,7 +42,7 @@ public class JobTest {
                 new PositionType("Quality Control"), new CoreCompetency("Persistence"));
         Job job2 = new Job("Product tester", new Employer("ACME"), new Location("Desert"),
                 new PositionType("Quality Control"), new CoreCompetency("Persistence"));
-        assertNotEquals(job1, job2);
+        assertFalse(job1.equals(job2));
     }
 
     @Test
