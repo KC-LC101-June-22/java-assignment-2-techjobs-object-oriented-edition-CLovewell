@@ -45,4 +45,48 @@ public class JobTest {
         assertNotEquals(job1, job2);
     }
 
+    @Test
+    public void testToStringStartsAndEndsWithNewLine() {
+        Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"),
+                new PositionType("Quality Control"), new CoreCompetency("Persistence"));
+        String str = job.toString();
+        assertEquals(str.charAt(0), '\n');
+        assertEquals(str.charAt(str.length()-1), '\n');
+    }
+
+    @Test
+    public void testToStringContainsCorrectLabelsAndData() {
+        Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"),
+                new PositionType("Quality Control"), new CoreCompetency("Persistence"));
+        String str = job.toString();
+        str = str.substring(1, str.length() - 1);
+        String[] fields = str.split("\n");
+        assertEquals(6, fields.length);
+        assertEquals("ID: " + job.getId(), fields[0]);
+        assertEquals("Name: Product tester", fields[1]);
+        assertEquals("Employer: ACME", fields[2]);
+        assertEquals("Location: Desert", fields[3]);
+        assertEquals("Position Type: Quality Control", fields[4]);
+        assertEquals("Core Competency: Persistence", fields[5]);
+    }
+
+    @Test
+    public void testToStringHandlesEmptyField() {
+        Job job = new Job();
+        job.setCoreCompetency(new CoreCompetency("Persistence"));
+        job.setLocation(new Location("Desert"));
+        job.setName("Product tester");
+        job.setPositionType(new PositionType("Quality Control"));
+        String str = job.toString();
+        str = str.substring(1, str.length() - 1);
+        String[] fields = str.split("\n");
+        assertEquals("Employer: Data not available", fields[2]);
+    }
+
+    @Test
+    public void testToStringHandlesJobWithOnlyIDField() {
+        Job job = new Job();
+        String str = job.toString();
+        assertEquals(str, "OOPS! This job does not seem to exist.");
+    }
 }

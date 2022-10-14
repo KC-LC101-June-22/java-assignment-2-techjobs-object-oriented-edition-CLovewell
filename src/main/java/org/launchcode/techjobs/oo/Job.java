@@ -13,9 +13,6 @@ public class Job {
     private PositionType positionType;
     private CoreCompetency coreCompetency;
 
-    // TODO: Add two constructors - one to initialize a unique ID and a second to initialize the
-    //  other five fields. The second constructor should also call the first in order to initialize
-    //  the 'id' field.
     public Job() {
         id = Job.nextId;
         Job.nextId++;
@@ -41,6 +38,25 @@ public class Job {
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    @Override
+    public String toString() {
+        String name = (this.getName() == null ? "Data not available" : this.getName());
+        String employer = (this.getEmployer() == null ? "Data not available" : this.getEmployer().getValue());;
+        String location = (this.getLocation() == null ? "Data not available" : this.getLocation().getValue());;
+        String positionType = (this.getPositionType() == null ? "Data not available" : this.getPositionType().getValue());;
+        String coreCompetency = (this.getCoreCompetency() == null ? "Data not available" : this.getCoreCompetency().getValue());;
+
+        return  (this.getName()==null && this.getEmployer()==null && this.getLocation()==null
+                && this.getPositionType()==null && this.getCoreCompetency()==null ?
+                "OOPS! This job does not seem to exist." :
+                "\nID: " + this.getId() +
+                "\nName: " + name +
+                "\nEmployer: " + employer +
+                "\nLocation: " + location +
+                "\nPosition Type: " + positionType +
+                "\nCore Competency: " + coreCompetency + '\n');
     }
 
     public String getName() {
