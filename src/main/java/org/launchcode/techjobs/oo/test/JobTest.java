@@ -88,5 +88,8 @@ public class JobTest {
         Job job = new Job();
         String str = job.toString();
         assertEquals(str, "OOPS! This job does not seem to exist.");
+        job.setLocation(new Location(""));
+        str = job.toString();
+        assertEquals(str, "OOPS! This job does not seem to exist.");
     }
 }

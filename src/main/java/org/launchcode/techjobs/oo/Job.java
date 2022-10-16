@@ -53,8 +53,11 @@ public class Job {
         String coreCompetency = (this.getCoreCompetency() == null || this.getCoreCompetency().getValue().equals("") ?
                 "Data not available" : this.getCoreCompetency().getValue());;
 
-        return  (this.getName()==null && this.getEmployer()==null && this.getLocation()==null
-                && this.getPositionType()==null && this.getCoreCompetency()==null ?
+        return  ((this.getName()==null || this.getName().equals(""))
+                && (this.getEmployer()==null || this.getEmployer().getValue().equals(""))
+                && (this.getLocation()==null || this.getLocation().getValue().equals(""))
+                && (this.getPositionType()==null || this.getPositionType().getValue().equals(""))
+                && (this.getCoreCompetency()==null || this.getCoreCompetency().getValue().equals("")) ?
                 "OOPS! This job does not seem to exist." :
                 "\nID: " + this.getId() +
                 "\nName: " + name +
