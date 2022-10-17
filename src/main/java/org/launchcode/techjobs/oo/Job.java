@@ -45,13 +45,13 @@ public class Job {
         String name = (this.getName() == null || this.getName().equals("") ?
                 "Data not available" : this.getName());
         String employer = (this.getEmployer() == null || this.getEmployer().getValue().equals("") ?
-                "Data not available" : this.getEmployer().getValue());;
+                "Data not available" : this.getEmployer().getValue());
         String location = (this.getLocation() == null || this.getLocation().getValue().equals("") ?
-                "Data not available" : this.getLocation().getValue());;
+                "Data not available" : this.getLocation().getValue());
         String positionType = (this.getPositionType() == null || this.getPositionType().getValue().equals("") ?
-                "Data not available" : this.getPositionType().getValue());;
+                "Data not available" : this.getPositionType().getValue());
         String coreCompetency = (this.getCoreCompetency() == null || this.getCoreCompetency().getValue().equals("") ?
-                "Data not available" : this.getCoreCompetency().getValue());;
+                "Data not available" : this.getCoreCompetency().getValue());
 
         return  ((this.getName()==null || this.getName().equals(""))
                 && (this.getEmployer()==null || this.getEmployer().getValue().equals(""))
