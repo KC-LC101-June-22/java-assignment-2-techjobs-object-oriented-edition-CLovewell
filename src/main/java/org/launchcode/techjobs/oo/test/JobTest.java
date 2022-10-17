@@ -87,9 +87,9 @@ public class JobTest {
     public void testToStringHandlesJobWithOnlyIDField() {
         Job job = new Job();
         String str = job.toString();
-        assertEquals(str, "OOPS! This job does not seem to exist.");
+        assertEquals(str, "\nOOPS! This job does not seem to exist.");
         job.setLocation(new Location(""));
         str = job.toString();
-        assertEquals(str, "OOPS! This job does not seem to exist.");
+        assertEquals(str, "\nOOPS! This job does not seem to exist.");
     }
 }

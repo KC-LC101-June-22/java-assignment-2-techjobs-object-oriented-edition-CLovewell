@@ -58,7 +58,7 @@ public class Job {
                 && (this.getLocation()==null || this.getLocation().getValue().equals(""))
                 && (this.getPositionType()==null || this.getPositionType().getValue().equals(""))
                 && (this.getCoreCompetency()==null || this.getCoreCompetency().getValue().equals("")) ?
-                "OOPS! This job does not seem to exist." :
+                "\nOOPS! This job does not seem to exist." :
                 "\nID: " + this.getId() +
                 "\nName: " + name +
                 "\nEmployer: " + employer +
@@ -67,7 +67,7 @@ public class Job {
                 "\nCore Competency: " + coreCompetency + '\n');
     }
 
-    public String getName() {
+    public String getName() throws NullPointerException {
         return name;
     }
 
@@ -75,15 +75,15 @@ public class Job {
         this.name = name;
     }
 
-    public Employer getEmployer() {
-        return employer;
+    public Employer getEmployer() throws NullPointerException {
+            return employer;
     }
 
     public void setEmployer(Employer employer) {
         this.employer = employer;
     }
 
-    public Location getLocation() {
+    public Location getLocation() throws NullPointerException {
         return location;
     }
 
@@ -91,7 +91,7 @@ public class Job {
         this.location = location;
     }
 
-    public PositionType getPositionType() {
+    public PositionType getPositionType() throws NullPointerException {
         return positionType;
     }
 
@@ -99,7 +99,7 @@ public class Job {
         this.positionType = positionType;
     }
 
-    public CoreCompetency getCoreCompetency() {
+    public CoreCompetency getCoreCompetency() throws NullPointerException {
         return coreCompetency;
     }
 
