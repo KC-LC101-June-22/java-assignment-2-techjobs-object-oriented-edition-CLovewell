@@ -1,15 +1,9 @@
 package org.launchcode.techjobs.oo;
 
 public class CoreCompetency extends JobField {
-    private static int nextId = 1;
-
-    public CoreCompetency() {
-        this.id = nextId;
-        nextId++;
-    }
 
     public CoreCompetency(String value) {
-        this();
+        super();
         this.value = value;
     }
 

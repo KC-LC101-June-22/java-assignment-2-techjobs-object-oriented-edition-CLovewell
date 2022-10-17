@@ -1,15 +1,9 @@
 package org.launchcode.techjobs.oo;
 
 public class Employer extends JobField {
-    private static int nextId = 1;
-
-    public Employer() {
-        id = nextId;
-        nextId++;
-    }
 
     public Employer(String value) {
-        this();
+        super();
         this.value = value;
     }
 

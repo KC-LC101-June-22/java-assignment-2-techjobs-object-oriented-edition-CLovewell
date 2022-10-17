@@ -1,15 +1,8 @@
 package org.launchcode.techjobs.oo;
 
 public class Location extends JobField {
-    private static int nextId = 1;
-
-    public Location() {
-        id = nextId;
-        nextId++;
-    }
-
     public Location(String value) {
-        this();
+        super();
         this.value = value;
     }
 
