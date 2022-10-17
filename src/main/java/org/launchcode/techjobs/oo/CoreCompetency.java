@@ -3,8 +3,7 @@ package org.launchcode.techjobs.oo;
 public class CoreCompetency extends JobField {
 
     public CoreCompetency(String value) {
-        super();
-        this.value = value;
+        super(value);
     }
 
     @Override
