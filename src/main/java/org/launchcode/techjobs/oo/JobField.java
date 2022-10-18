@@ -7,6 +7,7 @@ public abstract class JobField {
     public static final ArrayList<JobField> database = new ArrayList<>();
     static int nextId = 1;
     String value;
+    String type;
     int id;
 
     public JobField() {
@@ -23,6 +24,8 @@ public abstract class JobField {
         this.id = nextId;
         nextId++;
         this.value = value;
+        String name = this.getClass().getName();
+        this.type = name.substring(name.lastIndexOf('.') + 1);
         database.add(this);
     }
 
@@ -30,8 +33,17 @@ public abstract class JobField {
         return value;
     }
 
-    public void setValue(String value) {
+    public void setValue(String value) throws DuplicateJobFieldException {
+        for (JobField jf : database) {
+            if (jf.getValue().equals(value)) {
+                throw new DuplicateJobFieldException("That job field already exists.");
+            }
+        }
         this.value = value;
+    }
+
+    public String getType() {
+        return this.type;
     }
 
     public int getId() {
