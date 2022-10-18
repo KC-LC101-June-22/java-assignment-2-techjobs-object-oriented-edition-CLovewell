@@ -2,7 +2,7 @@ package org.launchcode.techjobs.oo;
 
 public class PositionType extends JobField{
 
-    public PositionType(String value) {
+    public PositionType(String value) throws DuplicateJobFieldException {
         super(value);
     }
 
